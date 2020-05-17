@@ -55,6 +55,18 @@ app.post("/messages",(req,res)=>{
     })
 })
 
+app.post("/delmessages",(req,res)=>{
+    Message.remove({}, function(err) {
+        if (err) {
+            console.log(err)
+        } else {
+            io.emit('deletedData')
+            // io.emit('message',{name:"All Messages" , message : "Deleted Successfully (Refresh)"})
+            res.end('success');
+        }
+    }
+);
+})
 
 
 io.on("connection",(socket) => {
@@ -67,6 +79,6 @@ mongoose.connect(dbUrl,(error)=>{                   //if there is error then not
     console.log("MongoDB Connection Successfull")
 })
 
-// app.listen(3000, () => console.log('Server Started') )           //Changed with http | coz of Socket.io
+// app.listen(5000, () => console.log('Server Started') )           //Changed with http | coz of Socket.io
 http.listen(port, () => console.log('Server Started') )           
 

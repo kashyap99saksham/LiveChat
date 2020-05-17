@@ -22,12 +22,19 @@
 </head>
 <body>
     <div class="container">
-        <!-- <br>         -->
-        <h1 class="display-10"> Chat Messages </h1>
-        <br>
-
+        <div>
+            <!-- <br>         -->
+            <h1 class="display-10"> Chat Messages </h1>
+            <!-- <br> -->
+            <!-- Delete -->
+            <div  class="text-right mb-3">
+                <a href="#" id="delete" class="btn btn-danger">Delete Chat</a>
+            </div>
+        </div>
         <!-- Messages -->
-        <div id="messages"  style="width:auto;height:400px;line-height:3em;overflow:auto;padding:5px;">
+        <div style="width:auto;height:400px;line-height:3em;overflow:auto;padding:5px;">
+            <div id="messages"  >
+            </div>
         </div>
 
 
@@ -64,6 +71,11 @@
             })
 
             getMessages()
+
+            $("#delete").click( () => {
+                deleteMessages()
+            })
+            
         })
 
         //Scroll Down My chat On Every Message
@@ -103,15 +115,28 @@
         }
 
         function getMessages(){
-            $.get("https://boiling-thicket-88408.herokuapp.com/messages" , (data) => {
+            $.get("http://localhost:5000/messages" , (data) => {
                 data.forEach(addMessage);
                 
             })
         }
         //It post data on URl then bodyParser get that and post on page
         function postMessages(message) {
-            $.post("https://boiling-thicket-88408.herokuapp.com/messages" , message)
+            $.post("http://localhost:5000/messages" , message)
         }
+
+
+        function deleteMessages() {
+            $.post("http://localhost:5000/delmessages" )
+        }
+
+        socket.on("deletedData" , () => {
+            alert("Chat Deleted ! ")
+            window.location.reload();
+            $( "#messages" ).remove();
+
+        })
+
     </script>
 </body>
 </html>
