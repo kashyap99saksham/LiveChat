@@ -20,7 +20,8 @@ app.use(bodyParser.urlencoded( {extended:false} ))
 
 
 // Mlab MongoDb Url
-var dbUrl = process.env.DBLINK
+// var dbUrl = process.env.DBLINK
+var dbUrl = "mongodb+srv://admin:Saksham1234567@cluster0-4s0l8.mongodb.net/test?retryWrites=true&w=majority"
 
 
 var Message = mongoose.model('Message', {           //Making Schema of mDB
