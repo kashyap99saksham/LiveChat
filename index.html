@@ -43,7 +43,7 @@
             <br>
             <input id="name" class="form-control" placeholder="Name">
             <br>
-            <textarea id="message" class="form-control" placeholder="Message" > </textarea>
+            <textarea type="reset" value="reset" id="message" class="form-control" placeholder="Message" > </textarea>
             <br>
             <button id="send" class="btn btn-success btn-block"> Send </button>
         </div>
@@ -115,7 +115,7 @@
         }
 
         function getMessages(){
-            $.get("http://localhost:5000/messages" , (data) => {
+            $.get("https://boiling-thicket-88408.herokuapp.com/messages" , (data) => {
                 data.forEach(addMessage);
                 
             })
