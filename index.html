@@ -99,14 +99,14 @@
         }
 
         function getMessages(){
-            $.get("https://boiling-thicket-88408.herokuapp.com//messages" , (data) => {
+            $.get("https://boiling-thicket-88408.herokuapp.com/messages" , (data) => {
                 data.forEach(addMessage);
                 
             })
         }
         //It post data on URl then bodyParser get that and post on page
         function postMessages(message) {
-            $.post("https://boiling-thicket-88408.herokuapp.com//messages" , message)
+            $.post("https://boiling-thicket-88408.herokuapp.com/messages" , message)
         }
     </script>
 </body>
