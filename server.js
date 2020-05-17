@@ -8,6 +8,8 @@ var io = require('socket.io')(http)     //setting up our socket io in backend
 
 var mongoose = require('mongoose')
 
+var port = process.env.PORT || 5000
+
 require('dotenv').config()      //use the secret keys
 
 app.use(express.static(__dirname))      //Serving static content with express
@@ -67,5 +69,5 @@ mongoose.connect(dbUrl,(error)=>{                   //if there is error then not
 })
 
 // app.listen(3000, () => console.log('Server Started') )           //Changed with http | coz of Socket.io
-http.listen(3000, () => console.log('Server Started') )           
+http.listen(port, () => console.log('Server Started') )           
 
