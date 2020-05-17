@@ -122,12 +122,12 @@
         }
         //It post data on URl then bodyParser get that and post on page
         function postMessages(message) {
-            $.post("http://localhost:5000/messages" , message)
+            $.post("https://boiling-thicket-88408.herokuapp.com/messages" , message)
         }
 
 
         function deleteMessages() {
-            $.post("http://localhost:5000/delmessages" )
+            $.post("https://boiling-thicket-88408.herokuapp.com/delmessages" )
         }
 
         socket.on("deletedData" , () => {
