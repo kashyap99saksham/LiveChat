@@ -43,7 +43,7 @@
             <br>
             <input id="name" class="form-control" placeholder="Name">
             <br>
-            <textarea type="reset" value="reset" id="message" class="form-control" placeholder="Message" > </textarea>
+            <textarea type="reset" value="reset" id="CommentBox" class="form-control" placeholder="Message" > </textarea>
             <br>
             <button id="send" class="btn btn-success btn-block"> Send </button>
         </div>
@@ -115,7 +115,7 @@
         }
 
         function getMessages(){
-            $.get("https://boiling-thicket-88408.herokuapp.com/messages" , (data) => {
+            $.get("https://boiling-thicket-88408.herokuapp.com`/messages" , (data) => {
                 data.forEach(addMessage);
                 
             })
@@ -133,6 +133,7 @@
         socket.on("deletedData" , () => {
             alert("Chat Deleted ! ")
             window.location.reload();
+            $('#CommentBox').val('');
             $( "#messages" ).remove();
 
         })
