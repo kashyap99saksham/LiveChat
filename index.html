@@ -66,6 +66,7 @@
 
             // console.log("Page Loaded");  
             $("#send").click( () => {
+                $('#CommentBox').val('');
                 var message = {name: $("#name").val() , message: $("#message").val() }
                 postMessages(message)
             })
@@ -133,7 +134,7 @@
         socket.on("deletedData" , () => {
             alert("Chat Deleted ! ")
             window.location.reload();
-            $('#CommentBox').val('');
+        
             $( "#messages" ).remove();
 
         })
